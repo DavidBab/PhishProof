@@ -1,0 +1,122 @@
+@import url('variables.css');
+
+.navbar {
+	margin-bottom: 10px;
+	background-color: var(--second-bg) !important;
+}
+
+.navbar-nav {
+	gap: 10px; /* Adjust as needed for spacing */
+}
+
+.navbar,
+.navbar a,
+.navbar-brand,
+.navbar-nav .nav-link {
+	color: var(--main-text) !important;
+}
+
+.nav-btn {
+	padding: 0.25rem 0.5rem;
+	margin: 0 0.25rem;
+	transition: background 0.2s;
+	border-radius: 8px;
+}
+
+.nav-btn .nav-icon {
+	margin-bottom: -3px;
+}
+
+/* SINGLE SOURCE OF TRUTH FOR ICON COLOR */
+.nav-icon {
+	color: var(--main-text) !important;
+	display: block;
+	margin: 0 auto 4px auto;
+	width: 32px;
+	height: 32px;
+	transition: color 0.2s;
+}
+
+.nav-btn:hover .nav-icon,
+.nav-btn:focus .nav-icon,
+.nav-btn.active .nav-icon,
+.nav-link.active .nav-icon {
+	color: var(--accent) !important;
+}
+
+.navbar-toggler {
+	border-color: var(--accent) !important;
+}
+
+.navbar-toggler:hover {
+	border-color: var(--accent-glow) !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+	background-color: transparent !important;
+	box-shadow: none !important;
+}
+
+/* THIS IS CHANGING COLORS IN THE TOGGLER!!! */
+.navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2300adb5' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2305f3ff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/*----------------------------------*/
+
+.navbar .d-flex {
+	gap: 10px;
+}
+
+.navbar .btn-outline-success {
+	color: var(--main-text) !important;
+	border-color: var(--accent) !important;
+}
+
+.navbar .btn-outline-success:hover {
+	background-color: var(--accent) !important;
+	border-color: var(--accent) !important;
+	color: var(--main-text) !important;
+}
+
+.navbar .btn-success {
+	color: var(--main-text) !important;
+	border-color: var(--accent) !important;
+	background-color: var(--accent) !important;
+}
+
+.navbar .btn-success:hover {
+	color: var(--main-text) !important;
+	border-color: var(--accent) !important;
+	background-color: var(--accent-dark) !important;
+}
+
+.navbar .dropdown-toggle::after {
+	display: none !important;
+}
+
+/* FOOTER CSS FROM HERE */
+
+@import url('variables.css');
+
+footer {
+	background-color: var(--second-bg);
+}
+
+.copyright-div {
+	background-color: #222831;
+	color: var(--main-text) !important;
+	font-size: 0.8rem;
+}
+
+.footer-icon {
+	color: var(--accent);
+}
+
+.footer-icon:hover {
+	color: var(--accent-glow);
+}

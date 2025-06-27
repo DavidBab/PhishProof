@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a
+						href="/dashboard"
+						class="nav-link nav-btn d-flex flex-column align-items-center{% if active_page == 'dashboard' %} active{% endif %}"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="nav-icon icon icon-tabler icons-tabler-outline icon-tabler-chalkboard"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path
+								d="M8 19h-3a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v11a1 1 0 0 1 -1 1"
+							/>
+							<path
+								d="M11 16m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"
+							/>
+						</svg>
+						Dashboard
+					</a>
+				</li>
+				<li class="nav-item">
+					<a
+						href="#"
+						class="nav-link nav-btn d-flex flex-column align-items-center"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="nav-icon icon icon-tabler icons-tabler-outline icon-tabler-book"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+							<path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+							<path d="M3 6l0 13" />
+							<path d="M12 6l0 13" />
+							<path d="M21 6l0 13" />
+						</svg>
+						Learn
+					</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a
+						class="nav-link dropdown-toggle nav-btn d-flex flex-column align-items-center"
+						href="#"
+						role="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="32"
+							height="32"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="nav-icon icon icon-tabler icons-tabler-outline icon-tabler-dots"
+						>
+							<path stroke="none" d="M0 0h24v24H0z" fill="none" />
+							<path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+							<path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+							<path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+						</svg>
+						Other
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li><a class="dropdown-item" href="/about">About Us</a></li>
+						<li><a class="dropdown-item" href="#">Contact Us</a></li>
+						<li><hr class="dropdown-divider" /></li>
+						<li><a class="dropdown-item" href="#">Buy Me a Coffee</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="d-flex">
+				<button class="btn btn-outline-success" type="submit">Log In</button>
+				<button class="btn btn-success" type="submit">Join for FREE</button>
+			</div>
+		</div>
+	</div>
+</nav>
