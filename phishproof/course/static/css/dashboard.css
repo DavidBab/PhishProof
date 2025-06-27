@@ -1,0 +1,65 @@
+@import url('variables.css');
+
+body {
+	background-color: var(--main-bg);
+	color: var(--main-text);
+}
+
+.content-container {
+	display: flex;
+	width: 100%;
+	min-height: 300px;
+	flex-wrap: wrap;
+	align-items: stretch;
+	padding: 20px;
+	box-sizing: border-box; /* Ensures padding is included in width */
+	gap: 20px;
+}
+
+.content-container h3,
+p {
+	margin-left: 10px;
+}
+
+.content-area {
+	display: flex;
+	flex-direction: column;
+	width: calc(70% - 10px); /* Half the gap */
+	min-height: 200px; /* Set a visible height */
+}
+
+.side-bar {
+	display: flex;
+	flex-direction: column;
+	width: calc(30% - 10px); /* Half the gap */
+	min-height: 200px; /* Set a visible height */
+	gap: 20px;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+	.content-area,
+	.side-bar {
+		width: 100%;
+	}
+}
+
+.learning-content {
+	background-color: var(--second-bg);
+	width: 100%;
+	/* align-items: stretch; <- Later when we will have content */
+	height: 540px;
+	border-radius: 8px;
+}
+
+.learning-content h4 {
+	margin: 20px 10px;
+}
+
+.user-progress {
+	background-color: var(--second-bg);
+	width: 100%;
+	/* align-items: stretch; <- Later when we will have content */
+	height: 300px;
+	border-radius: 8px;
+}

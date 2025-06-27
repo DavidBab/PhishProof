@@ -1,0 +1,32 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+{% endblock %}
+
+<!-- Title -->
+{% block title %} Dashboard {% endblock %}
+
+<!-- Content -->
+{% block content %}
+<body>
+	<div class="content-container">
+		<div class="content-area">
+			<h3>Welcome back, {{ user }}!</h3>
+			<p>
+				You have completed {{ completed_courses }} out of {{ total_courses }}
+				courses.
+			</p>
+			<div class="learning-content">
+				<h4>My Learning</h4>
+			</div>
+		</div>
+		<div class="side-bar">
+			<div class="user-progress"></div>
+			<div class="user-progress"></div>
+		</div>
+	</div>
+	{% endblock %}
+</body>
