@@ -1,13 +1,23 @@
 <!-- prettier-ignore -->
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    PhishProof
-{% endblock %} 
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}" />
+{% endblock %}
+
+<!-- Title -->
+{% block title %} PhishProof {% endblock %}
+
+<!-- Content -->
 {%block content %}
-
-<h1>Welcome to PhishProof</h1>
-<p>Your phishing protection starts here.</p>
-
+<div class="main-container">
+	<div class="main-text">
+		<h1>"Learn to spot phishing — not the hard way."</h1>
+		<p>
+			Learn to recognize dangerous emails through real, interactive training.
+		</p>
+	</div>
+</div>
 {% endblock %}

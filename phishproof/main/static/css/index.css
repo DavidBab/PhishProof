@@ -1,0 +1,10 @@
+@import url('/static/css/variables.css');
+
+body {
+	background-color: var(--main-bg);
+}
+
+.main-container {
+	width: 100%;
+	height: 500px;
+}
