@@ -19,5 +19,35 @@
 			Learn to recognize dangerous emails through real, interactive training.
 		</p>
 	</div>
+	<div class="newsletter-div">
+		<h3>Sign up for our newsletter</h3>
+		<form>
+			<div class="mb-3">
+				<input
+					type="email"
+					class="form-control"
+					id="exampleInputEmail1"
+					placeholder="info@example.com"
+					aria-describedby="emailHelp"
+					required
+				/>
+			</div>
+			<div class="mb-3 form-check">
+				<input
+					type="checkbox"
+					class="form-check-input"
+					id="termsCheck"
+					required
+				/>
+				<label class="form-check-label" for="termsCheck">
+					I agree to the
+					<a href="/terms/" class="terms-link">Terms of Service</a>
+					and
+					<a href="/privacy/" class="terms-link">Privacy Policy</a>
+				</label>
+			</div>
+			<button type="submit" class="btn btn-primary submit-btn">Submit</button>
+		</form>
+	</div>
 </div>
 {% endblock %}

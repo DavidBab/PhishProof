@@ -5,6 +5,168 @@ body {
 }
 
 .main-container {
+	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
-	height: 500px;
+	min-height: 80vh;
+	color: var(--main-text);
+}
+
+.newsletter-div {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	justify-content: center;
+	align-items: center; /* Keep center alignment for the container */
+	padding: 2rem;
+}
+
+.newsletter-div h3 {
+	text-align: left;
+	margin-bottom: 1rem; /* Add some spacing below the heading */
+	align-self: center; /* This makes only the h3 left-aligned */
+	width: 50%; /* Make h3 same width as form for alignment */
+}
+
+.newsletter-div form {
+	width: 50%; /* Form width 50% of newsletter-div */
+	align-self: center; /* Center the form */
+}
+
+.main-text {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 2rem;
+}
+
+.main-text h1 {
+	font-size: 50px;
+	text-align: left;
+	margin: 0;
+}
+
+.main-text p {
+	text-align: left;
+	margin: 0;
+	margin-top: 1rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+	.main-container {
+		flex-direction: column; /* Stack vertically on small screens */
+		min-height: auto; /* Allow natural height on mobile */
+	}
+
+	.main-text,
+	.newsletter-div {
+		width: 100%; /* Full width on mobile */
+		order: initial; /* Reset any ordering */
+	}
+
+	.main-text {
+		order: 1; /* Main text comes first */
+	}
+
+	.newsletter-div {
+		order: 2; /* Newsletter comes second */
+	}
+
+	.main-text h1 {
+		font-size: 2.5rem;
+	}
+
+	.main-text p {
+		text-align: left;
+	}
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+	.main-text h1 {
+		font-size: 2rem;
+	}
+
+	.main-text,
+	.newsletter-div {
+		padding: 1rem;
+	}
+}
+
+.terms-link {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.terms-link:hover {
+	color: var(--accent-glow);
+	text-decoration: underline;
+}
+
+.form-check-label {
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+
+.submit-btn {
+	background-color: var(--accent) !important;
+	border-color: var(--accent) !important;
+	margin-top: 0px;
+}
+
+.submit-btn:hover {
+	background-color: var(--accent-glow) !important;
+	border-color: var(--accent-glow) !important;
+}
+
+.form-control::placeholder {
+	color: var(--main-text);
+	opacity: 0.5; /* Makes it transparent/semi-transparent */
+	font-style: italic;
+}
+
+/* Different browsers need different prefixes */
+.form-control::-webkit-input-placeholder {
+	/* Chrome/Safari/Edge */
+	color: var(--main-text);
+	opacity: 0.5;
+	font-style: italic;
+}
+
+.form-control::-moz-placeholder {
+	/* Firefox 19+ */
+	color: var(--main-text);
+	opacity: 0.5;
+	font-style: italic;
+}
+
+.form-control:-ms-input-placeholder {
+	/* IE 10+ */
+	color: var(--main-text);
+	opacity: 0.5;
+	font-style: italic;
+}
+
+.form-control:-moz-placeholder {
+	/* Firefox 18- */
+	color: var(--main-text);
+	opacity: 0.5;
+	font-style: italic;
+}
+
+/* Style the input field itself */
+.form-control {
+	background-color: var(--second-bg);
+	border: 1px solid var(--accent);
+	color: var(--main-text);
+}
+
+.form-control:focus {
+	background-color: var(--second-bg);
+	border-color: var(--accent-glow);
+	box-shadow: 0 0 0 0.2rem rgba(var(--accent-rgb), 0.25);
+	color: var(--main-text);
 }
