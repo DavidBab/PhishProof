@@ -38,7 +38,6 @@
 }
 
 .nav-btn:hover .nav-icon,
-.nav-btn:focus .nav-icon,
 .nav-btn.active .nav-icon,
 .nav-link.active .nav-icon {
 	color: var(--accent) !important;
@@ -54,6 +53,7 @@
 
 .navbar-toggler:focus,
 .navbar-toggler:active {
+	color: var(--main-text) !important;
 	background-color: transparent !important;
 	box-shadow: none !important;
 }
