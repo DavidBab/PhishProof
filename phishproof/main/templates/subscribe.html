@@ -1,0 +1,20 @@
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extra_css %}
+<meta http-equiv="refresh" content="3;url={% url 'index' %}">
+<link rel="stylesheet" href="{% static 'css/subscribe.css' %}" />
+{% endblock %}
+
+<!-- Title -->
+{% block title %} PhishProof {% endblock %}
+
+<!-- Content -->
+{% block content %}
+<div class="container">
+    <h5>Thank you for subscribing!</h5>
+    <p>You will be redirected shortly...</p>
+</div>
+{% endblock %}

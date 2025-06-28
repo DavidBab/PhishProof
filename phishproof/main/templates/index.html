@@ -11,7 +11,7 @@
 {% block title %} PhishProof {% endblock %}
 
 <!-- Content -->
-{%block content %}
+{% block content %}
 <div class="main-container">
 	<div class="main-text">
 		<h1>"Learn to spot phishing — not the hard way."</h1>
@@ -21,24 +21,16 @@
 	</div>
 	<div class="newsletter-div">
 		<h3>Sign up for our newsletter</h3>
-		<form>
-			<div class="mb-3">
-				<input
-					type="email"
-					class="form-control"
-					id="exampleInputEmail1"
-					placeholder="info@example.com"
-					aria-describedby="emailHelp"
-					required
-				/>
+		<form method="POST" action="{% url 'subscribe' %}" class="subscribe-form">
+			<div class="mb-3"> 
+				{% csrf_token %}
+				{{ form.email.label.tag  }}
+				{{ form.email }}
+				{{ form.email.errors }}
 			</div>
 			<div class="mb-3 form-check">
-				<input
-					type="checkbox"
-					class="form-check-input"
-					id="termsCheck"
-					required
-				/>
+				{{ form.agree_to_terms  }}
+				{{ form.agree_to_terms.errors }}
 				<label class="form-check-label" for="termsCheck">
 					I agree to the
 					<a href="/terms/" class="terms-link">Terms of Service</a>
