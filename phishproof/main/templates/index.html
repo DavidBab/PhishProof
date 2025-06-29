@@ -13,33 +13,72 @@
 <!-- Content -->
 {% block content %}
 <div class="main-container">
-	<div class="main-text">
-		<h1>"Learn to spot phishing — not the hard way."</h1>
-		<p>
-			Learn to recognize dangerous emails through real, interactive training.
-		</p>
+	<div class="hero-section">
+		<div class="hero-content">
+			<h1 class="hero-title">
+				"Learn to spot phishing<br />
+				<span class="accent-text">— not the hard way."</span>
+			</h1>
+			<hr class="divider" />
+			<p class="hero-description">
+				Master the art of recognizing dangerous emails through real, interactive
+				training. Protect yourself and your organization from cyber threats with
+				hands-on learning.
+			</p>
+		</div>
 	</div>
-	<div class="newsletter-div">
-		<h3>Sign up for our newsletter</h3>
-		<form method="POST" action="{% url 'subscribe' %}" class="subscribe-form">
-			<div class="mb-3"> 
+
+	<div class="signup-section">
+		<div class="signup-content">
+			<h3 class="signup-title">Start Your Journey to Cyber Safety</h3>
+			<p class="signup-subtitle">
+				Join thousands who've learned to spot phishing attempts before they
+				become victims.
+			</p>
+
+			<form class="signup-form" method="post">
 				{% csrf_token %}
-				{{ form.email.label.tag  }}
-				{{ form.email }}
-				{{ form.email.errors }}
+				<div class="input-group">
+					<input
+						type="email"
+						class="email-input"
+						placeholder="Enter your email address"
+						name="email"
+						required
+					/>
+					<button type="submit" class="signup-btn">Get Started Free</button>
+				</div>
+				<div class="form-check-wrapper">
+					<input
+						type="checkbox"
+						class="form-check-input"
+						id="termsCheck"
+						required
+					/>
+					<label class="form-check-label" for="termsCheck">
+						I agree to the
+						<a href="#" class="terms-link">Terms of Service</a>
+						and
+						<a href="#" class="terms-link">Privacy Policy</a>
+					</label>
+				</div>
+			</form>
+
+			<div class="features-preview">
+				<div class="feature-item">
+					<span class="feature-icon">🛡️</span>
+					<span class="feature-text">Real phishing examples</span>
+				</div>
+				<div class="feature-item">
+					<span class="feature-icon">📊</span>
+					<span class="feature-text">Progress tracking</span>
+				</div>
+				<div class="feature-item">
+					<span class="feature-icon">🎯</span>
+					<span class="feature-text">Interactive learning</span>
+				</div>
 			</div>
-			<div class="mb-3 form-check">
-				{{ form.agree_to_terms  }}
-				{{ form.agree_to_terms.errors }}
-				<label class="form-check-label" for="termsCheck">
-					I agree to the
-					<a href="/terms/" class="terms-link">Terms of Service</a>
-					and
-					<a href="/privacy/" class="terms-link">Privacy Policy</a>
-				</label>
-			</div>
-			<button type="submit" class="btn btn-primary submit-btn">Submit</button>
-		</form>
+		</div>
 	</div>
 </div>
 {% endblock %}
