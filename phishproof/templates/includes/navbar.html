@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="/">PhishProof</a>
 		<button
 			class="navbar-toggler"
 			type="button"
@@ -72,8 +72,8 @@
 				{% endif %}
 				<li class="nav-item">
 					<a
-						href="{% if request.user.is_authenticated %} # {% else %} /auth/login {% endif %}"
-						class="nav-link nav-btn d-flex flex-column align-items-center"
+						href="{% if request.user.is_authenticated %} /app/learn {% else %} /auth/login {% endif %}"
+						class="nav-link nav-btn d-flex flex-column align-items-center {% if request.path == '/app/learn/' %}active{% endif %}"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -99,8 +99,8 @@
 				</li>
 				<li class="nav-item">
 					<a
-						href="{% if request.user.is_authenticated %} # {% else %} /auth/login {% endif %}"
-						class="nav-link nav-btn d-flex flex-column align-items-center"
+						href="{% if request.user.is_authenticated %} /app/lab {% else %} /auth/login {% endif %}"
+						class="nav-link nav-btn d-flex flex-column align-items-center {% if request.path == '/app/lab/' %}active{% endif %}"
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

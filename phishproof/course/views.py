@@ -11,3 +11,13 @@ def dashboard(request):
     }
 
     return render(request, "dashboard.html", context)
+
+
+@login_required
+def learn(request):
+    return render(request, "learn.html")
+
+
+@login_required
+def lab(request):
+    return render(request, "lab.html")
