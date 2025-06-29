@@ -129,10 +129,19 @@
 					</ul>
 				</li>
 			</ul>
+			{% if request.user.is_authenticated %}
 			<div class="d-flex">
-				<a href="/accounts/login/" class="btn btn-outline-success">Log In</a>
-				<a href="/accounts/register/" class="btn btn-success">Join for FREE</a>
+				<form method="post" action="{% url 'logout' %}">
+					{% csrf_token %}
+					<button type="submit" class="btn btn-outline-light">Log Out</button>
+				</form>
 			</div>
+			{% else %}
+			<div class="d-flex">
+				<a href="{% url 'login' %}" class="btn btn-outline-success">Log In</a>
+				<a href="{% url 'register' %}" class="btn btn-success">Join for FREE</a>
+			</div>
+			{% endif %}
 		</div>
 	</div>
 </nav>
