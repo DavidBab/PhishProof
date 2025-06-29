@@ -1,7 +1,7 @@
 @import url('variables.css');
 
 .navbar {
-	margin-bottom: 10px;
+	padding-bottom: 10px;
 	background-color: var(--second-bg) !important;
 }
 

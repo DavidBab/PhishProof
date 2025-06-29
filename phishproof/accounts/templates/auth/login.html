@@ -1,0 +1,66 @@
+{% extends "base.html" %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+{% endblock %}
+
+<!-- Title -->
+{% block title %}Login{% endblock %}
+
+<!-- Content -->
+{% block content %}
+<div class="auth-container">
+	<div class="auth-card">
+		<div class="auth-header">
+			<h1 class="auth-title">Welcome Back</h1>
+			<p class="auth-subtitle">
+				Sign in to continue your phishing protection journey
+			</p>
+		</div>
+
+		<form class="auth-form" method="post">
+			{% csrf_token %} {{ form.as_p }}
+
+			<!-- Display form errors -->
+			{% if form.errors %}
+			<div class="error-messages">
+				{% for field, errors in form.errors.items %} {% for error in errors %}
+				<div class="error-message">{{ error }}</div>
+				{% endfor %} {% endfor %}
+			</div>
+			{% endif %}
+
+			<div class="form-options">
+				<div class="remember-me">
+					<input
+						type="checkbox"
+						class="form-checkbox"
+						id="remember"
+						name="remember"
+					/>
+					<label for="remember" class="checkbox-label">Remember me</label>
+				</div>
+				<a href="#" class="forgot-link">Forgot password?</a>
+			</div>
+
+			<button type="submit" class="auth-btn">Sign In</button>
+
+			<div class="auth-footer">
+				<p class="auth-switch">
+					Don't have an account?
+					<a href="{% url 'register' %}" class="auth-link">Sign up for free</a>
+				</p>
+			</div>
+		</form>
+
+		<div class="auth-divider">
+			<span class="divider-text">or</span>
+		</div>
+
+		<div class="social-login">
+			<button class="social-btn google-btn">
+				<span class="social-icon">🔐</span>
+				Continue with Google
+			</button>
+		</div>
+	</div>
+</div>
+{% endblock %}

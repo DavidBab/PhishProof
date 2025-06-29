@@ -11,7 +11,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('dashboard')
+            return redirect('/app/dashboard')
     else:
         form = BootstrapRegisterForm()
-    return render(request, 'accounts/register.html', {'form': form})
+    return render(request, 'auth/register.html', {'form': form})

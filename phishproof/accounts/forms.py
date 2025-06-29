@@ -4,10 +4,10 @@ from django.contrib.auth.models import User
 
 class BootstrapLoginForm(AuthenticationForm):
     username = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'})
+        widget=forms.TextInput(attrs={'class': 'form-control form-input', 'placeholder': 'Username'})
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'})
+        widget=forms.PasswordInput(attrs={'class': 'form-control form-input', 'placeholder': 'Password'})
     )
 
 class BootstrapRegisterForm(UserCreationForm):

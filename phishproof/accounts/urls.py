@@ -7,12 +7,12 @@ urlpatterns = [
     # path('register/', views.register_view, name='register_view'),  
     path('login/', 
          auth_views.LoginView.as_view(
-             template_name='accounts/login.html', 
+             template_name='auth/login.html', 
              authentication_form=BootstrapLoginForm
             ), 
          name='login'
         ),
-    path('logout/', auth_views.LogoutView.as_view(next_page="/accounts/login"), name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page="/auth/login"), name='logout'),
 
     path('register/', views.register_view, name='register'),
 ]
