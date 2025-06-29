@@ -98,9 +98,127 @@
 	display: none !important;
 }
 
-/* FOOTER CSS FROM HERE */
+/* Profile Avatar Styles */
+.profile-dropdown {
+	border: none !important;
+	background: none !important;
+	box-shadow: none !important;
+	margin-right: 15px; /* Move profile icon more to the left */
+}
 
-@import url('variables.css');
+.profile-dropdown:focus {
+	box-shadow: none !important;
+}
+
+.profile-avatar {
+	width: 55px; /* Increased from 40px */
+	height: 55px; /* Increased from 40px */
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #333;
+	font-weight: bold;
+	font-size: 1.1rem; /* Increased from 1rem */
+	text-transform: uppercase;
+	cursor: pointer;
+	border: 2px solid var(--accent);
+	margin-right: 10px;
+}
+
+.profile-avatar:hover {
+	border: var(--accent-glow) 3px solid;
+}
+
+.avatar-icon {
+	color: var(--accent);
+}
+/* Profile Dropdown Menu & Other Dropdown Menu - Theme styling */
+.dropdown-menu {
+	min-width: 180px;
+	border: none;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+	border-radius: 12px;
+	padding: 0.5rem 0;
+	margin-top: 0.5rem;
+	background-color: var(--second-bg); /* Use theme background */
+}
+
+.dropdown-header {
+	padding: 0.75rem 1rem 0.5rem;
+	border-bottom: 1px solid var(--accent);
+	margin-bottom: 0.5rem;
+	color: var(--main-text);
+}
+
+.dropdown-item {
+	padding: 0.6rem 1rem;
+	display: flex;
+	align-items: center;
+	transition: all 0.2s ease;
+	border: none;
+	background: none;
+	color: var(--main-text); /* Use theme text color */
+}
+
+.dropdown-item:hover {
+	background-color: var(--accent);
+	color: var(--main-text);
+}
+
+.dropdown-item.text-danger:hover {
+	background-color: #dc3545;
+	color: white;
+}
+
+.dropdown-item svg {
+	opacity: 0.7;
+}
+
+.dropdown-item:hover svg {
+	opacity: 1;
+}
+
+/* Remove the white background overrides */
+.dropdown-menu-dark {
+	background-color: var(--second-bg) !important;
+	border: none !important;
+}
+
+.dropdown-menu-dark .dropdown-item {
+	color: var(--main-text) !important;
+}
+
+.dropdown-menu-dark .dropdown-item:hover {
+	background-color: var(--accent) !important;
+	color: var(--main-text) !important;
+}
+
+.dropdown-menu-dark .dropdown-divider {
+	border-color: var(--accent) !important;
+}
+
+/* Responsive adjustments for both dropdowns */
+@media (max-width: 768px) {
+	.profile-avatar {
+		width: 40px;
+		height: 40px;
+		font-size: 1rem;
+	}
+
+	.dropdown-menu {
+		min-width: 160px; /* Same thinner width on mobile */
+	}
+
+	.dropdown-item {
+		padding: 0.5rem 0.75rem; /* Same adjusted padding */
+	}
+
+	.profile-dropdown {
+		margin-right: 10px;
+	}
+}
+/* FOOTER CSS FROM HERE */
 
 footer {
 	background-color: var(--second-bg);
