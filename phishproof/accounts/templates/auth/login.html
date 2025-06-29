@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block extra_css %}
+{% extends "base.html" %} {% load static %}
+
+<!-- CSS -->
+{% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}" />
 {% endblock %}
 
@@ -17,15 +20,9 @@
 		</div>
 
 		<form class="auth-form" method="post">
-			{% csrf_token %} 
-			{{ form.username.label_tag }}
-			{{ form.username }}
-			<br>
-			{{ form.password.label_tag }}
-			{{ form.password }}
-			<br>
+			{% csrf_token %}
 
-			<!-- Display form errors -->
+			<!-- Display ALL errors in ONE block -->
 			{% if form.errors %}
 			<div class="error-messages">
 				{% for field, errors in form.errors.items %} {% for error in errors %}
@@ -34,10 +31,29 @@
 			</div>
 			{% endif %}
 
+			<div class="form-group">
+				<label for="{{ form.username.id_for_label }}" class="form-label"
+					>Email or Username</label
+				>
+				{{ form.username }}
+			</div>
+
+			<div class="form-group">
+				<label for="{{ form.password.id_for_label }}" class="form-label"
+					>Password</label
+				>
+				{{ form.password }}
+			</div>
+
 			<div class="form-options">
 				<div class="remember-me">
 					{{ form.remember_me }}
-					{{ form.remember_me.label_tag }}
+					<label
+						for="{{ form.remember_me.id_for_label }}"
+						class="checkbox-label"
+					>
+						Remember me
+					</label>
 				</div>
 				<a href="#" class="forgot-link">Forgot password?</a>
 			</div>
@@ -57,7 +73,7 @@
 		</div>
 
 		<div class="social-login">
-			<button class="social-btn google-btn">
+			<button class="social-btn google-btn" type="button">
 				<span class="social-icon">🔐</span>
 				Continue with Google
 			</button>

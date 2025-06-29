@@ -6,13 +6,8 @@ from accounts.views import CustomLoginView
 urlpatterns = [
     # path('login/', views.login_view, name='login_view'),  
     # path('register/', views.register_view, name='register_view'),  
-    path('login/', 
-         CustomLoginView.as_view(
-             template_name='auth/login.html', 
-             authentication_form=BootstrapLoginForm
-            ), 
-         name='login'
-        ),
+    path('login/', views.login_view, name='login'),
+
     path('logout/', auth_views.LogoutView.as_view(next_page="/auth/login"), name='logout'),
 
     path('register/', views.register_view, name='register'),
