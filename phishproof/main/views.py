@@ -4,6 +4,8 @@ from .forms import SubscriberForm
 # Create your views here.
 def index(request):
     form = SubscriberForm()
+    
+
     return render(request, "index.html", {"form": form})
 
 
