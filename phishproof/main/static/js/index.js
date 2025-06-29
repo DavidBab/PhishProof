@@ -6,47 +6,13 @@ let maxSlideIndex = 0;
 function updateCardsPerView() {
 	if (window.innerWidth <= 480) {
 		cardsPerView = 1;
-	} else if (window.innerWidth <= 600) {
+	} else if (window.innerWidth <= 768) {
 		cardsPerView = 2;
-	} else if (window.innerWidth <= 920) {
-		cardsPerView = 2; // 2 cards for mid-range screens
 	} else {
-		cardsPerView = 3;
+		cardsPerView = 3; // Maximum 3 cards on desktop
 	}
 	maxSlideIndex = Math.ceil(totalCards / cardsPerView) - 1;
 	updateDots();
-}
-
-function updateCarousel() {
-	const track = document.getElementById('carouselTrack');
-	let cardWidth;
-
-	// Match the CSS breakpoints
-	if (window.innerWidth <= 480) {
-		cardWidth = Math.min(window.innerWidth - 64, 280) + 16; // Full width with gap
-	} else if (window.innerWidth <= 600) {
-		cardWidth = 220 + 16;
-	} else if (window.innerWidth <= 768) {
-		cardWidth = 250 + 16;
-	} else if (window.innerWidth <= 920) {
-		cardWidth = 240 + 16;
-	} else if (window.innerWidth <= 1024) {
-		cardWidth = 260 + 20;
-	} else {
-		cardWidth = 280 + 24;
-	}
-
-	const offset = currentSlideIndex * (cardWidth * cardsPerView);
-
-	if (track) {
-		track.style.transform = `translateX(-${offset}px)`;
-	}
-
-	// Update dots
-	const dots = document.querySelectorAll('.dot');
-	dots.forEach((dot, index) => {
-		dot.classList.toggle('active', index === currentSlideIndex);
-	});
 }
 
 function updateDots() {
@@ -67,6 +33,38 @@ function updateDots() {
 		dot.onclick = () => currentSlide(i + 1);
 		dotsContainer.appendChild(dot);
 	}
+}
+
+function updateCarousel() {
+	const track = document.getElementById('carouselTrack');
+	let cardWidth;
+
+	// Match the CSS breakpoints - keeping max 3 cards
+	if (window.innerWidth <= 480) {
+		cardWidth = Math.min(window.innerWidth - 64, 280) + 16;
+	} else if (window.innerWidth <= 600) {
+		cardWidth = 220 + 16;
+	} else if (window.innerWidth <= 768) {
+		cardWidth = 250 + 16;
+	} else if (window.innerWidth <= 920) {
+		cardWidth = 240 + 16;
+	} else if (window.innerWidth <= 1024) {
+		cardWidth = 260 + 20;
+	} else {
+		cardWidth = 280 + 24; // Desktop: max 3 cards at 280px each
+	}
+
+	const offset = currentSlideIndex * (cardWidth * cardsPerView);
+
+	if (track) {
+		track.style.transform = `translateX(-${offset}px)`;
+	}
+
+	// Update dots
+	const dots = document.querySelectorAll('.dot');
+	dots.forEach((dot, index) => {
+		dot.classList.toggle('active', index === currentSlideIndex);
+	});
 }
 
 function currentSlide(n) {

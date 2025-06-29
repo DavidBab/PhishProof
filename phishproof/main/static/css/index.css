@@ -560,6 +560,9 @@ body {
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 	transition: all 0.3s ease;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column; /* Make card a flex container */
+	height: 350px; /* Fixed height for all cards */
 }
 
 .carousel-card:hover {
@@ -572,26 +575,14 @@ body {
 	width: 100%;
 	position: relative;
 	overflow: hidden;
-}
-
-.card-image img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 0.3s ease;
-}
-
-.carousel-card:hover .card-image img {
-	transform: scale(1.05);
-}
-
-/* Fallback gradient backgrounds when images fail to load */
-.card-image img[style*='background'] {
-	border-radius: 0;
+	flex-shrink: 0; /* Don't shrink the image */
 }
 
 .card-content {
 	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	flex: 1; /* Take remaining space */
 }
 
 .card-title {
@@ -599,19 +590,22 @@ body {
 	font-weight: bold;
 	color: var(--main-text);
 	margin-bottom: 0.75rem;
+	flex-shrink: 0; /* Don't shrink the title */
 }
 
 .card-description {
 	color: var(--main-text);
+	opacity: 0.8;
 	font-size: 0.9rem;
 	line-height: 1.5;
 	margin-bottom: 1rem;
-	opacity: 0.6;
+	flex: 1; /* Take available space, pushing difficulty badge down */
 }
 
 .card-difficulty {
 	display: flex;
 	justify-content: flex-start;
+	margin-top: auto; /* Push to bottom */
 }
 
 .difficulty-badge {
@@ -636,7 +630,6 @@ body {
 	background-color: #f8d7da;
 	color: #721c24;
 }
-
 /* Dot Navigation */
 .carousel-dots {
 	display: flex;
