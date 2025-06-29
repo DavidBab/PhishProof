@@ -9,6 +9,16 @@ class BootstrapLoginForm(AuthenticationForm):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control form-input', 'placeholder': 'Password'})
     )
+    remember_me = forms.BooleanField(
+        required=False,
+        widget=forms.CheckboxInput(attrs={
+            "type": "checkbox",
+            "class": "form-check-input",
+            "id": "remember",
+            "name": "remember"
+        }),
+        label="Remember me"
+    )
 
 class BootstrapRegisterForm(UserCreationForm):
     class Meta:

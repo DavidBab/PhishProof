@@ -17,7 +17,13 @@
 		</div>
 
 		<form class="auth-form" method="post">
-			{% csrf_token %} {{ form.as_p }}
+			{% csrf_token %} 
+			{{ form.username.label_tag }}
+			{{ form.username }}
+			<br>
+			{{ form.password.label_tag }}
+			{{ form.password }}
+			<br>
 
 			<!-- Display form errors -->
 			{% if form.errors %}
@@ -30,13 +36,8 @@
 
 			<div class="form-options">
 				<div class="remember-me">
-					<input
-						type="checkbox"
-						class="form-checkbox"
-						id="remember"
-						name="remember"
-					/>
-					<label for="remember" class="checkbox-label">Remember me</label>
+					{{ form.remember_me }}
+					{{ form.remember_me.label_tag }}
 				</div>
 				<a href="#" class="forgot-link">Forgot password?</a>
 			</div>
