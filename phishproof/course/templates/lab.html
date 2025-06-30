@@ -7,7 +7,165 @@
 {% endblock %}
 
 <!-- Title -->
-{% block title %} Dashboard {% endblock %}
+{% block title %}Phishing Detection Lab{% endblock %}
 
 <!-- Content -->
-{% block content %} {% endblock %}
+{% block content %}
+<div class="lab-container">
+	<div class="container-fluid">
+		<!-- Header -->
+		<div class="lab-header">
+			<h1>📧 Phishing Detection Lab</h1>
+			<p>Analyze the email below and decide if it's phishing or legitimate</p>
+			<div class="lab-stats">
+				<div class="stat-item">
+					<span class="stat-number">0</span>
+					<span class="stat-label">Correct</span>
+				</div>
+				<div class="stat-divider"></div>
+				<div class="stat-item">
+					<span class="stat-number">0</span>
+					<span class="stat-label">Incorrect</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Email Simulation Window -->
+		<div class="webmail-window">
+			<div class="webmail-header">
+				<div class="webmail-controls">
+					<div class="control-button close"></div>
+					<div class="control-button minimize"></div>
+					<div class="control-button maximize"></div>
+				</div>
+				<div class="webmail-title">Webmail - Inbox</div>
+				<div class="webmail-url">https://webmail.company.com</div>
+			</div>
+
+			<div class="webmail-toolbar">
+				<button class="toolbar-btn active">📥 Inbox</button>
+				<button class="toolbar-btn">📤 Sent</button>
+				<button class="toolbar-btn">📋 Drafts</button>
+				<button class="toolbar-btn">🗑️ Trash</button>
+			</div>
+
+			<div class="email-content">
+				<div class="email-header">
+					<div class="email-meta">
+						<div class="email-from">
+							<strong>From:</strong>
+							<span id="sender-email">security@paypal.com</span>
+						</div>
+						<div class="email-to">
+							<strong>To:</strong>
+							<span id="recipient-email">you@company.com</span>
+						</div>
+						<div class="email-subject">
+							<strong>Subject:</strong>
+							<span id="email-subject">Urgent: Account Security Alert</span>
+						</div>
+						<div class="email-date">
+							<strong>Date:</strong> <span id="email-date">Today, 2:34 PM</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="email-body" id="email-body">
+					<div class="email-text">
+						<p>Dear Valued Customer,</p>
+
+						<p>
+							We have detected unusual activity on your PayPal account. For your
+							security, we have temporarily limited access to your account.
+						</p>
+
+						<p><strong>Account Details:</strong></p>
+						<ul>
+							<li>Account: ****@company.com</li>
+							<li>Last Login: Unknown Location</li>
+							<li>Status: Limited Access</li>
+						</ul>
+
+						<p>
+							To restore full access to your account, please verify your
+							identity by clicking the link below:
+						</p>
+
+						<div class="email-button-container">
+							<a href="#" class="email-cta-button">Verify Account Now</a>
+						</div>
+
+						<p><em>This request expires in 24 hours for your security.</em></p>
+
+						<p>
+							If you did not authorize this action, please contact our security
+							team immediately.
+						</p>
+
+						<p>
+							Best regards,<br />
+							PayPal Security Team
+						</p>
+
+						<div class="email-footer">
+							<p>
+								<small
+									>PayPal Holdings, Inc. | 2211 North First Street | San Jose,
+									CA 95131</small
+								>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Decision Buttons -->
+		<div class="decision-container">
+			<div class="decision-prompt">
+				<h3>Is this email legitimate or phishing?</h3>
+				<p>
+					Analyze the email content, sender information, and any suspicious
+					elements
+				</p>
+			</div>
+
+			<div class="button-container">
+				<button id="phishing-button" class="decision-button phishing-btn">
+					<span class="button-icon">🚨</span>
+					<span class="button-text">This is Phishing</span>
+					<span class="button-desc"
+						>This email is suspicious and likely a scam</span
+					>
+				</button>
+
+				<button id="legitimate-button" class="decision-button legitimate-btn">
+					<span class="button-icon">✅</span>
+					<span class="button-text">This is Legitimate</span>
+					<span class="button-desc">This email appears to be genuine</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- Result Modal (Initially Hidden) -->
+		<div id="result-modal" class="modal hidden">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h2 id="result-title">Result</h2>
+					<button class="close-modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div id="result-icon" class="result-icon"></div>
+					<p id="result-message">Your analysis result will appear here</p>
+					<div id="explanation" class="explanation"></div>
+				</div>
+				<div class="modal-footer">
+					<button id="next-email" class="next-button">Next Email</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{% static 'js/lab.js' %}"></script>
+{% endblock %}
