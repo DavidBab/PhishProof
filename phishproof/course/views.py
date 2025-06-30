@@ -21,3 +21,12 @@ def learn(request):
 @login_required
 def lab(request):
     return render(request, "lab.html")
+
+
+@login_required
+def profile(request):
+    context = {
+        'user_since': request.user.date_joined.strftime('%B %Y'),
+    }
+
+    return render(request, "profile.html", context)
