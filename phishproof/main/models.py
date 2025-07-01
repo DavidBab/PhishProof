@@ -7,3 +7,21 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return self.email
+    
+
+class Course(models.Model):
+    DIFFICULTY_CHOICES = [
+        ('beginner', 'Beginner'),
+        ('intermediate', 'Intermediate'),
+        ('advanced', 'Advanced'),
+    ]
+
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
+
+    class Meta:
+        db_table = 'courses'
+
+    def __str__(self):
+        return self.title
