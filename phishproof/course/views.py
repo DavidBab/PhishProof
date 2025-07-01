@@ -54,7 +54,7 @@ def dashboard(request):
         'in_progress_courses': in_progress_courses,
         'overall_progress': overall_progress,
         'day_streak': day_streak,
-        'courses': courses,  
+        'courses': courses,
     }
 
     return render(request, "dashboard.html", context)

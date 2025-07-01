@@ -178,20 +178,22 @@
 					</div>
 					<div class="stats-list">
 						<div class="stat-row">
-							<span class="stat-label">Lessons Completed</span>
-							<span class="stat-value">47</span>
+							<span class="stat-label">Modules Completed</span>
+							<span class="stat-value">{{ completed_courses }}</span>
 						</div>
 						<div class="stat-row">
-							<span class="stat-label">Time Spent Learning</span>
-							<span class="stat-value">28h</span>
+							<span class="stat-label">Lessons Completed</span>
+							<span class="stat-value">-</span>
 						</div>
 						<div class="stat-row">
 							<span class="stat-label">Current Streak</span>
-							<span class="stat-value">15 days</span>
+							<span class="stat-value">0 days</span>
 						</div>
 						<div class="stat-row">
-							<span class="stat-label">Certificates Earned</span>
-							<span class="stat-value">3</span>
+							<span class="stat-label">Certificate Earned</span>
+							<span class="stat-value">
+								{% if is_certified %} Yes {% else %} No {% endif %}
+							</span>
 						</div>
 					</div>
 				</div>
