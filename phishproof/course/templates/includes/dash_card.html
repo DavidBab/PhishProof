@@ -1,0 +1,91 @@
+<div class="course-item {{course.status}}" data-level="{{ course.difficulty }}">
+	<div class="course-content">
+		<div class="course-icon">🔐</div>
+		<div class="course-info">
+			<h3 class="course-title">{{ course.title }}</h3>
+			<p class="course-description">{{ course.description }}</p>
+			<div class="course-meta">
+				<span class="course-duration">{{ course.course_duration }}</span>
+				<span class="course-difficulty {{ course.difficulty }}">
+					{{ course.difficulty }}
+				</span>
+			</div>
+		</div>
+		<div class="course-progress-section">
+			<div class="course-status {{ course.status }}">
+				{% if course.status == 'completed' %}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<polyline points="9,11 12,14 22,4" />
+					<path
+						d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.06.74 5.59 1.98"
+					/>
+				</svg>
+				{% elif course.status == 'in_progress' %}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<circle cx="12" cy="12" r="10" />
+					<polyline points="10,8 16,12 10,16" />
+				</svg>
+				{% else %}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					width="20"
+					height="20"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					stroke-width="2"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+				>
+					<circle cx="12" cy="12" r="10" />
+					<polyline points="12,6 12,12 16,14" />
+				</svg>
+				{% endif %}
+			</div>
+			<div class="course-progress">
+				<div class="progress-bar">
+					<div
+						class="progress-fill"
+						style="width: {{ course.progress_percentage }}%"
+					></div>
+				</div>
+				<span class="progress-text">
+					<!-- prettier-ignore -->
+					{% if course.status == 'completed' %}
+					<!-- Completed Message -->
+					Completed
+					<!-- prettier-ignore -->
+					{% elif course.status == 'in_progress' %}
+					<!-- In Progress Message -->
+					In Progress
+					<!-- prettier-ignore -->
+					{% else %}
+					<!-- Not Started Message -->
+					Not Started
+					<!-- prettier-ignore -->
+					{% endif %}
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
