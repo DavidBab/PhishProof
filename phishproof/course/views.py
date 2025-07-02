@@ -62,7 +62,38 @@ def dashboard(request):
 
 @login_required
 def learn(request):
-    return render(request, "learn.html")
+    # Get all courses
+    courses = Course.objects.all()
+    
+    user_progress_dict = {
+        up.course_id: up for up in 
+        UserCourseProgress.objects.filter(user=request.user)
+    }
+
+    # Add progress data to each course
+    for course in courses:
+        progress = user_progress_dict.get(course.id)
+        if progress:
+            course.status = progress.status
+            course.progress_percentage = progress.progress
+        else:
+            course.status = 'not_started'
+            course.progress_percentage = 0
+    
+    # Sort courses by status priority
+    status_priority = {
+        'completed': 1,
+        'in_progress': 2,
+        'not_started': 3
+    }
+    
+    courses = sorted(courses, key=lambda x: status_priority.get(x.status, 3))
+    
+    context = {
+        'courses': courses,
+    }
+    
+    return render(request, "learn.html", context)
 
 
 @login_required

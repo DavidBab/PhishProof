@@ -7,7 +7,149 @@
 {% endblock %}
 
 <!-- Title -->
-{% block title %} Dashboard {% endblock %}
+{% block title %}Learn{% endblock %}
 
 <!-- Content -->
-{% block content %} {% endblock %}
+{% block content %}
+<div class="learn-container">
+	<div class="container-fluid">
+		<div class="learn-content">
+			<!-- Page Header -->
+			<div class="page-header">
+				<h1>Learning Courses</h1>
+				<p>Choose a course to start your cybersecurity journey</p>
+			</div>
+
+			<!-- Course Filters -->
+			<div class="course-filters">
+				<button class="filter-btn active" data-filter="all">All Courses</button>
+				<button class="filter-btn" data-filter="beginner">Beginner</button>
+				<button class="filter-btn" data-filter="intermediate">
+					Intermediate
+				</button>
+				<button class="filter-btn" data-filter="advanced">Advanced</button>
+				<button class="filter-btn" data-filter="not_started">
+					Not Started
+				</button>
+				<button class="filter-btn" data-filter="in_progress">
+					In Progress
+				</button>
+				<button class="filter-btn" data-filter="completed">Completed</button>
+			</div>
+
+			<!-- Courses Grid -->
+			<div class="courses-grid">
+				{% for course in courses %}
+				<div
+					class="course-card {{ course.status }}"
+					data-level="{{ course.difficulty|lower }}"
+					data-status="{{ course.status }}"
+					data-course-id="{{ course.id }}"
+				>
+					<div class="course-header">
+						<div class="course-icon">{{ course.icon|default:'📚' }}</div>
+						<div class="course-status-badge {{ course.status }}">
+							{% if course.status == 'completed' %}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<polyline points="9,11 12,14 22,4" />
+								<path
+									d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c2.12 0 4.06.74 5.59 1.98"
+								/>
+							</svg>
+							{% elif course.status == 'in_progress' %}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="10" />
+								<polyline points="10,8 16,12 10,16" />
+							</svg>
+							{% else %}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="10" />
+								<polyline points="12,6 12,12 16,14" />
+							</svg>
+							{% endif %}
+						</div>
+					</div>
+
+					<div class="course-content">
+						<h3 class="course-title">{{ course.title }}</h3>
+						<p class="course-description">{{ course.description }}</p>
+
+						<div class="course-meta">
+							<span class="course-duration">{{ course.progress }}</span>
+							<span class="course-difficulty {{ course.difficulty|lower }}">
+								{{ course.difficulty }}
+							</span>
+						</div>
+
+						<div class="course-progress">
+							<div class="progress-bar">
+								<div
+									class="progress-fill"
+									style="width: {{ course.progress_percentage }}%"
+								></div>
+							</div>
+							<span class="progress-text">
+								{% if course.status == 'completed' %}
+								<!---->
+								Completed
+								<!---->
+								{% elif course.status == 'in_progress' %} In Progress
+								<!---->
+								{% else %} Not Started {% endif %}
+							</span>
+						</div>
+					</div>
+
+					<div class="course-actions">
+						{% if course.status == 'completed' %}
+						<button class="btn btn-secondary">Review Course</button>
+						{% elif course.status == 'in_progress' %}
+						<button class="btn btn-primary">Continue Learning</button>
+						{% else %}
+						<button class="btn btn-primary">Start Course</button>
+						{% endif %}
+					</div>
+				</div>
+				{% empty %}
+				<div class="no-courses">
+					<h3>No courses available</h3>
+					<p>Check back later for new learning content.</p>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %} {% block extra_js %}
+<script src="{% static 'js/learn.js' %}"></script>
+{% endblock %}
