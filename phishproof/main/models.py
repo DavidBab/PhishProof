@@ -19,6 +19,7 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     difficulty = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
+    course_duration = models.IntegerField(default=0)
     modules = models.IntegerField(default=0)
 
     class Meta:
