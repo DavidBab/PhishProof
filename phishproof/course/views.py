@@ -135,3 +135,12 @@ def profile(request):
     }
 
     return render(request, "profile.html", context)
+
+
+@login_required
+def settings(request):
+    context = {
+        'user': request.user.username,
+    }
+    
+    return render(request, 'settings.html', context)

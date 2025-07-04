@@ -15,8 +15,13 @@
 	<div class="container-fluid">
 		<!-- Header -->
 		<div class="lab-header">
-			<h1>📧 Phishing Detection Lab</h1>
-			<p>Analyze the email below and decide if it's phishing or legitimate</p>
+			<div class="lab-text">
+				<h1>Phishing Detection Lab</h1>
+				<p>
+					Analyze the email content, sender information, and any suspicious
+					elements
+				</p>
+			</div>
 			<div class="lab-stats">
 				<div class="stat-item">
 					<span class="stat-number">0</span>
@@ -39,16 +44,7 @@
 					<div class="control-button maximize"></div>
 				</div>
 				<div class="webmail-title">Webmail - Inbox</div>
-				<div class="webmail-url">https://webmail.company.com</div>
 			</div>
-
-			<div class="webmail-toolbar">
-				<button class="toolbar-btn active">📥 Inbox</button>
-				<button class="toolbar-btn">📤 Sent</button>
-				<button class="toolbar-btn">📋 Drafts</button>
-				<button class="toolbar-btn">🗑️ Trash</button>
-			</div>
-
 			<div class="email-content">
 				<div class="email-header">
 					<div class="email-meta">
@@ -63,9 +59,6 @@
 						<div class="email-subject">
 							<strong>Subject:</strong>
 							<span id="email-subject">Urgent: Account Security Alert</span>
-						</div>
-						<div class="email-date">
-							<strong>Date:</strong> <span id="email-date">Today, 2:34 PM</span>
 						</div>
 					</div>
 				</div>
@@ -122,17 +115,8 @@
 
 		<!-- Decision Buttons -->
 		<div class="decision-container">
-			<div class="decision-prompt">
-				<h3>Is this email legitimate or phishing?</h3>
-				<p>
-					Analyze the email content, sender information, and any suspicious
-					elements
-				</p>
-			</div>
-
 			<div class="button-container">
 				<button id="phishing-button" class="decision-button phishing-btn">
-					<span class="button-icon">🚨</span>
 					<span class="button-text">This is Phishing</span>
 					<span class="button-desc"
 						>This email is suspicious and likely a scam</span
@@ -140,7 +124,6 @@
 				</button>
 
 				<button id="legitimate-button" class="decision-button legitimate-btn">
-					<span class="button-icon">✅</span>
 					<span class="button-text">This is Legitimate</span>
 					<span class="button-desc">This email appears to be genuine</span>
 				</button>
