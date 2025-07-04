@@ -132,11 +132,11 @@
 
 					<div class="course-actions">
 						{% if course.status == 'completed' %}
-						<button class="btn btn-secondary">Review Course</button>
+						<button class="btn-course btn-secondary">Review Course</button>
 						{% elif course.status == 'in_progress' %}
-						<button class="btn btn-primary">Continue Learning</button>
+						<button class="btn-course btn-primary">Continue Learning</button>
 						{% else %}
-						<button class="btn btn-primary">Start Course</button>
+						<button class="btn-course btn-primary">Start Course</button>
 						{% endif %}
 					</div>
 				</div>

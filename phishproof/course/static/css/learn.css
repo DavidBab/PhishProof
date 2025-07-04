@@ -1,8 +1,9 @@
 /* Learn Container */
 .learn-container {
 	background-color: var(--main-bg);
-	min-height: 100vh;
+	min-height: calc(100vh - 120px); /* Adjust based on header + footer height */
 	padding: 2rem 0;
+	flex: 1; /* This ensures proper layout */
 }
 
 .learn-content {
@@ -222,7 +223,7 @@
 	margin-top: auto;
 }
 
-.btn {
+.btn-course {
 	width: 100%;
 	padding: 0.875rem 1.5rem;
 	border: none;

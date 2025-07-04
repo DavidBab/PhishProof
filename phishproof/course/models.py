@@ -10,6 +10,7 @@ class UserCourseProgress(models.Model):
     progress = models.IntegerField(default=0)
     status = models.CharField(max_length=50, default='not_started')
     started_at = models.DateTimeField(auto_now_add=True)
+    modules_done = models.IntegerField(default=0)
 
     class Meta:
         unique_together = ('user', 'course')

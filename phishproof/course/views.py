@@ -108,11 +108,30 @@ def profile(request):
     completed_courses = user_progress.filter(status='completed').count()
     total_courses = Course.objects.count()
     
+    # Get last 3 in-progress courses with course details
+    last_three = list(
+        user_progress.filter(status='in_progress')
+        .select_related('course')  # This joins with the Course table
+        .order_by('-id')[:3]
+    )
+
+    # Calculate progress percentage for each course
+    for i in last_three:
+        if i.course.modules > 0:
+            i.progress = round((i.modules_done / i.course.modules) * 100)
+        else:
+            i.progress = 0
+    
+    
     context = {
+       'user': request.user.username,
+        'email': request.user.email,
+        'is_active': request.user.is_active,
         'user_since': request.user.date_joined.strftime('%B %Y'),
         'completed_courses': completed_courses,
         'total_courses': total_courses,
-        'courses_in_progress': user_progress.filter(status='in_progress').count(),
+        'courses_in_progress_count': user_progress.filter(status='in_progress').count(),
+        'courses_in_progress': last_three,
     }
 
     return render(request, "profile.html", context)
