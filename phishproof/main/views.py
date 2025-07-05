@@ -6,13 +6,10 @@ from main.models import Course
 def index(request):
     courses = Course.objects.all()
 
-    print(f"Found {courses} courses")
-    
     context = {
         'courses': courses,
     }
     
-
     return render(request, "index.html", context)
 
 
